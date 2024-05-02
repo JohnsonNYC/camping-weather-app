@@ -59,7 +59,19 @@ const WeatherIO = () => {
   const handleGetWeatherData = async (location) => {
     try {
       let res = await getWeatherData(location, formattedToday, formatted30DaysAhead);
-      if (res && res.status == 200) setWeatherData(res.data)
+      if (res && res.status == 200) {
+        setWeatherData(res.data)
+      } else if (res && res.response && res.response.status == 429) {
+        setErrorMessage("Exceeded the maximum allowable requests. Try again tomorrow")
+        setTimeout(() => {
+          setErrorMessage(null);
+        }, 5000)
+      } else {
+        setErrorMessage("Make sure you've added a proper locations")
+        setTimeout(() => {
+          setErrorMessage(null);
+        }, 5000)
+      }
     } catch (e) {
       setErrorMessage(e)
     }
