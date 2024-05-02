@@ -35,7 +35,7 @@ const Header = ({ weatherData, currLocation, selectedDay, selectedPeriod, errorM
         <Display color='red'>Weather.io</Display>
         <StyledMenu />
       </FlexContainer>
-      <StyledButton onClick={getCurrentLocation}><Text size='xs' color='blue'>Get Current Location</Text></StyledButton>
+      <StyledButton onClick={getCurrentLocation}><Text size='xs' color='blue'>Use Current Location</Text></StyledButton>
       <InputContainer>
 
         <FlexContainer>
@@ -108,6 +108,7 @@ const StyledButton = styled.button`
   border-radius: 8px; 
   background: white; 
   cursor: pointer; 
+  margin-bottom: 10px; 
 `
 const StyledMenu = styled(Menu)`
   margin-left: auto; 

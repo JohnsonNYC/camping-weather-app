@@ -92,7 +92,8 @@ const Wrapper = styled.div`
   scroll-snap-align: start;
 
   @media screen and (min-width: 1350px){
-    border:1px solid red; 
+    border: 1px solid gray; 
+    border-radius: 6px;  
     min-width: 48%; 
   }
 `
