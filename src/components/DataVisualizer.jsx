@@ -17,20 +17,23 @@ const DataVisualizer = ({ hoursData }) => {
           data: hoursData.map((data) => data.temp),
           backgroundColor: 'red',
           borderColor: "red",
-          borderWidth: 2
+          borderWidth: 2,
+          tension: 0.4
         },
         {
           label: "Wind Speeds (mph)",
           data: hoursData.map((data) => data.windspeed),
           backgroundColor: 'orange',
           borderColor: "orange",
-          borderWidth: 2
+          borderWidth: 2,
+          tension: 0.4
         }, {
           label: "Humidity (%)",
           data: hoursData.map((data) => data.humidity),
           backgroundColor: "blue",
           borderColor: "blue",
-          borderWidth: 2
+          borderWidth: 2,
+          tension: 0.4
         }
       ]
     }
@@ -43,11 +46,19 @@ const DataVisualizer = ({ hoursData }) => {
         data={CHART_DATA}
         options={{
           maintainAspectRatio: false,
-          plugins: {
-            title: {
-              display: true,
+          scales: {
+            x: {
+              grid: {
+                display: false,
+              }
+            },
+            y: {
+              display: false,
+              grid: {
+                display: false
+              }
             }
-          }
+          },
         }} />
     </Wrapper>);
 }
@@ -57,5 +68,7 @@ export default DataVisualizer;
 const Wrapper = styled.div`
   position: relative;
   height: 54vh;
-  width: 100%;
+  width: 94%;
+  border-left: 2px dashed black;
+  border-right: 2px dashed black;
 `
